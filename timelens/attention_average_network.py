@@ -39,7 +39,7 @@ class AttentionAverage(refine_warp_network.RefineWarp):
 
     def run_fast(self, example):
         example['middle']['before_refined_warped'], \
-        example['middle']['after_refined_warped'] = refine_warp_network.RefineWarp.run_fast(self, example)
+        example['middle']['after_refined_warped'] = RefineWarp.run_fast(self, example)
 
         attention_scores = self.attention_network(
             _pack_input_for_attention_computation(example)
@@ -54,7 +54,7 @@ class AttentionAverage(refine_warp_network.RefineWarp):
         return average, attention
 
     def run_attention_averaging(self, example):
-        refine_warp_network.RefineWarp.run_and_pack_to_example(self, example)
+        RefineWarp.run_and_pack_to_example(self, example)
         attention_scores = self.attention_network(
             _pack_input_for_attention_computation(example)
         )
