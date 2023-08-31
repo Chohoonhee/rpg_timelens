@@ -30,7 +30,7 @@ def _compute_weighted_average(attention, before_refined, after_refined, fusion):
     )
 
 
-class AttentionAverage(refine_warp_network.RefineWarp):
+class AttentionAverage(RefineWarp):
     def __init__(self):
         warp_network.Warp.__init__(self)
         self.fusion_network = unet.UNet(2 * 3 + 2 * 5, 3, False)
